@@ -4,6 +4,7 @@ on: push
 
 jobs:
   npm-build:
+    name: npm-build工作
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
