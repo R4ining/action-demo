@@ -1,6 +1,8 @@
 name: 打包React项目
-
 on: push
+
+permissions:
+  contents: write
 
 jobs:
   npm-build:
@@ -9,7 +11,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Install dependencies
-      run: npm install
-    - name: Package project
-      run: npm run build
+
+    - name: Install dependencies && Package
+      run: |
+        npm install
+        npm run build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: build
