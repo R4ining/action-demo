@@ -1,5 +1,10 @@
 on: push
 
 jobs:
-    job1:
-    job2:
+  job1:
+    steps:
+    - run: pwd
+    - run: ls
+  job2:
+    steps:
+    - run: ls
